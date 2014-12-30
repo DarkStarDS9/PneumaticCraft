@@ -1,12 +1,5 @@
--Added multiblock elevator functionality.
--Added elevator part camouflaging.
--Removed MJ power converters.
--Added Not Enough Keys support.
+-Added 'Rename Drone' piece.
 
--Bugfix: Entity Tracker "A mob is targeting you" spams.
--Bugfix: Some machines don't properly look for redstone after world reset.
--Bugfix: Regulator tube causes an explosion.
--Bugfix: Plastic Mixer dye Ore Dictionary doesn't behave.
--Bugfix: infinite RF powah!
--Bugfix: Fire Flowers catch fire in Pressure Chamber. Fixes #282
--Bugfix: [SMP] Aphorism tile appears to ignore any typed character until you hit the Enter key for the first time.
+-Bugfix: Drone places blocks even when there are entities occupying the block space.
+-Bugfix: Crash when using XU Golden Lasso on Drone.
+-Bugfix: Server startup crashes.
