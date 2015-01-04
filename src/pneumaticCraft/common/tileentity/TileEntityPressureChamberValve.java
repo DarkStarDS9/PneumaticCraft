@@ -304,12 +304,17 @@ public class TileEntityPressureChamberValve extends TileEntityPneumaticBase impl
             if(in != null) {
                 int amount = 0;
                 for(ItemStack item : items) {
-                    if(item != null && (in.isItemEqual(item) || PneumaticCraftUtils.isSameOreDictStack(in, item))) amount += item.stackSize;
+                    if(item != null && isItemEqual(in, item)) amount += item.stackSize;
                 }
                 if(amount < in.stackSize) return false;
             }
         }
         return true;
+    }
+
+    // we'd better perform the exact same check in canBeCompressed and clearStacksInChamber :)
+    private boolean isItemEqual(ItemStack stack1, ItemStack stack2){
+        return stack1.isItemEqual(stack2) || PneumaticCraftUtils.isSameOreDictStack(stack1, stack2);
     }
 
     public ItemStack[] getStacksInChamber(){
@@ -380,7 +385,7 @@ public class TileEntityPressureChamberValve extends TileEntityPneumaticBase impl
             if(entity.isDead) continue;
             ItemStack entityStack = entity.getEntityItem();
             for(int l = 0; l < stacksToClear.length; l++) {
-                if(stacksToClear[l].isItemEqual(entityStack) && stackSizes[l] > 0) {
+                if(isItemEqual(stacksToClear[l], entityStack) && stackSizes[l] > 0) {
                     outputPosition[0] = entity.posX;
                     outputPosition[1] = entity.posY;
                     outputPosition[2] = entity.posZ;

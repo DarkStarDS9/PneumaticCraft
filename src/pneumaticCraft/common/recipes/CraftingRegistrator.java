@@ -184,7 +184,6 @@ public class CraftingRegistrator{
         // plastic
         for(int i = 0; i < 16; i++) {
             PressureChamberRecipe.chamberRecipes.add(new PressureChamberRecipe(new ItemStack[]{new ItemStack(Itemss.plasticPlant, 1, i)}, 0.5F, new ItemStack[]{new ItemStack(Itemss.plastic, 1, i)}, false));
-            PressureChamberRecipe.chamberRecipes.add(new PressureChamberRecipe(new ItemStack[]{new ItemStack(Itemss.plasticPlant, 1, i + 16)}, 0.5F, new ItemStack[]{new ItemStack(Itemss.plastic, 1, i)}, false));//TODO remove legacy
         }
         // Empty PCB
         PressureChamberRecipe.chamberRecipes.add(new PressureChamberRecipe(new ItemStack[]{new ItemStack(Itemss.plastic, 1, ItemPlasticPlants.CREEPER_PLANT_DAMAGE), new ItemStack(Itemss.ingotIronCompressed, 1, 0)}, 1.5F, new ItemStack[]{new ItemStack(Itemss.emptyPCB, 1, Itemss.emptyPCB.getMaxDamage())}, false));

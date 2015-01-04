@@ -1,12 +1,14 @@
 package pneumaticCraft.common.nei;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.oredict.OreDictionary;
 
 import org.lwjgl.opengl.GL11;
 
@@ -70,7 +72,23 @@ public class NEIPressureChamberRecipeManager extends PneumaticCraftPlugins{
     protected ChamberRecipe getShape(PressureChamberRecipe recipe){
         ChamberRecipe shape = new ChamberRecipe();
         for(int i = 0; i < recipe.input.length; i++) {
-            PositionedStack stack = new PositionedStack(recipe.input[i], 19 + i % 3 * 17, 93 - i / 3 * 17);
+            PositionedStack stack;
+            int posX = 19 + i % 3 * 17;
+            int posY = 93 - i / 3 * 17;
+
+            int[] oreIDs = OreDictionary.getOreIDs(recipe.input[i]);
+            if(oreIDs.length > 0) {
+                ArrayList<ItemStack> oreInputs = new ArrayList<ItemStack>();
+
+                for(int oreID : oreIDs) {
+                    oreInputs.addAll(OreDictionary.getOres(OreDictionary.getOreName(oreID)));
+                }
+
+                stack = new PositionedStack(oreInputs, posX, posY, true);
+            } else {
+                stack = new PositionedStack(recipe.input[i], posX, posY);
+            }
+
             shape.addIngredient(stack);
         }
 
