@@ -4,6 +4,7 @@ public class Names{
     //Ore dict
     public static final String INGOT_IRON_COMPRESSED = "ingotIronCompressed";
     public static final String BLOCK_IRON_COMPRESSED = "blockIronCompressed";
+    public static final String SEED_HELIUM = "seedHelium";
 
     public static final String MODULE_SAFETY_VALVE = "safetyTubeModule";
     public static final String MODULE_REGULATOR = "regulatorTubeModule";

@@ -3,6 +3,7 @@ package pneumaticCraft.common.thirdparty.ic2;
 import ic2.api.item.IC2Items;
 import ic2.api.recipe.IMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
+import ic2.api.recipe.RecipeInputOreDict;
 import ic2.api.recipe.Recipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -19,6 +20,7 @@ import pneumaticCraft.common.block.Blockss;
 import pneumaticCraft.common.item.ItemPlasticPlants;
 import pneumaticCraft.common.item.Itemss;
 import pneumaticCraft.common.thirdparty.IThirdParty;
+import pneumaticCraft.lib.Names;
 import pneumaticCraft.proxy.ClientProxy;
 import pneumaticCraft.proxy.CommonProxy;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -56,8 +58,12 @@ public class IC2 implements IThirdParty, IGuiHandler{
                     Recipes.macerator.addRecipe(new IC2RecipeInput(new ItemStack(Itemss.plasticPlant, 1, ItemPlasticPlants.CREEPER_PLANT_DAMAGE + 16)), null, new ItemStack(Items.gunpowder));
                 }
                 if(Config.enableHeliumPlantMaceratorRecipe) {
+                    /*
                     Recipes.macerator.addRecipe(new IC2RecipeInput(new ItemStack(Itemss.plasticPlant, 1, ItemPlasticPlants.HELIUM_PLANT_DAMAGE)), null, new ItemStack(Items.glowstone_dust));
                     Recipes.macerator.addRecipe(new IC2RecipeInput(new ItemStack(Itemss.plasticPlant, 1, ItemPlasticPlants.HELIUM_PLANT_DAMAGE + 16)), null, new ItemStack(Items.glowstone_dust));
+                    Recipes.macerator.addRecipe(new IC2RecipeInput(new ItemStack(Itemss.cultivatedHeliumSeeds, 1)), null, new ItemStack(Items.glowstone_dust));
+                    */
+                    Recipes.macerator.addRecipe(new RecipeInputOreDict(Names.SEED_HELIUM), null, new ItemStack(Items.glowstone_dust));
                 }
                 if(Config.enableFlyingFlowerExtractorRecipe) {
                     Recipes.extractor.addRecipe(new IC2RecipeInput(new ItemStack(Itemss.plasticPlant, 1, ItemPlasticPlants.FLYING_FLOWER_DAMAGE)), null, new ItemStack(Items.feather));

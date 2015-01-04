@@ -20,6 +20,7 @@ tile.propulsionPlant.name=Propulsion Plant
 tile.repulsionPlant.name=Repulsion Plant
 tile.flyingFlower.name=Flying Flower
 tile.chopperPlant.name=Chopper Plant
+tile.cultivatedHeliumPlant.name=Cultivated Helium Plant
 tile.chargingStation.name=Charging Station
 tile.elevatorBase.name=Elevator Base
 tile.elevatorFrame.name=Elevator Frame
@@ -109,6 +110,8 @@ item.plasticPlant12.name=Chopper Plant Seeds
 item.plasticPlant13.name=Music Plant Seeds
 item.plasticPlant14.name=Propulsion Plant Seeds
 item.plasticPlant15.name=Flying Flower Seeds
+
+item.cultivatedHeliumSeeds.name=Cultivated Helium Plant Seeds
 
 item.plasticElectronTube0.name=Squid Plant Electron Tube
 item.plasticElectronTube1.name=Fire Flower Electron Tube

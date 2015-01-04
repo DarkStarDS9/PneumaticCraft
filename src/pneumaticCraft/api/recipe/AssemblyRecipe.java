@@ -14,10 +14,16 @@ public class AssemblyRecipe{
 
     private final ItemStack input;
     private final ItemStack output;
+    private boolean blockOreDict = false;
 
     public AssemblyRecipe(ItemStack input, ItemStack output){
+        this(input, output, false);
+    }
+
+    public AssemblyRecipe(ItemStack input, ItemStack output, boolean blockOreDict){
         this.input = input;
         this.output = output;
+        this.blockOreDict = blockOreDict;
     }
 
     public ItemStack getInput(){
@@ -28,12 +34,20 @@ public class AssemblyRecipe{
         return output;
     }
 
+    public boolean shouldBlockOreDict(){
+        return blockOreDict;
+    }
+
     public static void addDrillRecipe(Object input, Object output){
         drillRecipes.add(new AssemblyRecipe(getStackFromObject(input), getStackFromObject(output)));
     }
 
     public static void addLaserRecipe(Object input, Object output){
         laserRecipes.add(new AssemblyRecipe(getStackFromObject(input), getStackFromObject(output)));
+    }
+
+    public static void addLaserRecipe(Object input, Object output, boolean blockOreDict){
+        laserRecipes.add(new AssemblyRecipe(getStackFromObject(input), getStackFromObject(output), blockOreDict));
     }
 
     private static ItemStack getStackFromObject(Object object){

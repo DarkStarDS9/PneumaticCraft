@@ -2,6 +2,7 @@ package pneumaticCraft.common.thirdparty.waila;
 
 import mcp.mobius.waila.api.IWailaRegistrar;
 import pneumaticCraft.api.tileentity.IPneumaticMachine;
+import pneumaticCraft.common.block.pneumaticPlants.BlockCultivatedPlantBase;
 import pneumaticCraft.common.block.pneumaticPlants.BlockPneumaticPlantBase;
 import pneumaticCraft.common.thirdparty.IThirdParty;
 import pneumaticCraft.common.tileentity.TileEntityPressureTube;
@@ -28,6 +29,7 @@ public class Waila implements IThirdParty{
     public static void callbackRegister(IWailaRegistrar registrar){
         registrar.registerBodyProvider(new WailaHandler(), IPneumaticMachine.class);
 
+        registrar.registerBodyProvider(new WailaCultivatedPlantHandler(), BlockCultivatedPlantBase.class);
         registrar.registerBodyProvider(new WailaPlantHandler(), BlockPneumaticPlantBase.class);
 
         registrar.registerSyncedNBTKey("pneumatic", IPneumaticMachine.class);

@@ -1,7 +1,9 @@
 package pneumaticCraft.common.nei;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import pneumaticCraft.common.block.Blockss;
+import pneumaticCraft.common.block.pneumaticPlants.BlockCultivatedPlantBase;
+import pneumaticCraft.common.block.pneumaticPlants.BlockPneumaticPlantBase;
 import pneumaticCraft.lib.Log;
 import pneumaticCraft.lib.Versions;
 import codechicken.nei.api.API;
@@ -35,20 +37,12 @@ public class NEIPluginInitConfig implements IConfigureNEI{
          upgrades.add(Itemss.machineUpgrade, 0, ItemMachineUpgrade.UPGRADES_AMOUNT);
          API.addSetRange("Mod.PneumaticCraft.Machine Upgrades", upgrades);*/
 
-        API.hideItem(new ItemStack(Blockss.burstPlant));
-        API.hideItem(new ItemStack(Blockss.chopperPlant));
-        API.hideItem(new ItemStack(Blockss.creeperPlant));
-        API.hideItem(new ItemStack(Blockss.enderPlant));
-        API.hideItem(new ItemStack(Blockss.fireFlower));
-        API.hideItem(new ItemStack(Blockss.flyingFlower));
-        API.hideItem(new ItemStack(Blockss.heliumPlant));
-        API.hideItem(new ItemStack(Blockss.lightningPlant));
-        API.hideItem(new ItemStack(Blockss.potionPlant));
-        API.hideItem(new ItemStack(Blockss.propulsionPlant));
-        API.hideItem(new ItemStack(Blockss.rainPlant));
-        API.hideItem(new ItemStack(Blockss.repulsionPlant));
-        API.hideItem(new ItemStack(Blockss.slimePlant));
-        API.hideItem(new ItemStack(Blockss.squidPlant));
+        for(Block b : BlockPneumaticPlantBase.allPlants) {
+            API.hideItem(new ItemStack(b));
+        }
+        for(Block b : BlockCultivatedPlantBase.allPlants) {
+            API.hideItem(new ItemStack(b));
+        }
     }
 
     @Override

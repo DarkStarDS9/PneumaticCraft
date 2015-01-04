@@ -37,7 +37,6 @@ import pneumaticCraft.client.render.pneumaticArmor.HUDHandler;
 import pneumaticCraft.client.render.pneumaticArmor.hacking.HackableHandler;
 import pneumaticCraft.client.render.pneumaticArmor.hacking.entity.HackableEnderman;
 import pneumaticCraft.common.block.Blockss;
-import pneumaticCraft.common.block.pneumaticPlants.BlockPlants;
 import pneumaticCraft.common.block.pneumaticPlants.BlockPneumaticPlantBase;
 import pneumaticCraft.common.entity.item.EntityItemSpecial;
 import pneumaticCraft.common.item.ItemMachineUpgrade;
@@ -145,7 +144,7 @@ public class EventHandlerPneumaticCraft{
                     for(int z = event.z - 2; z < event.z + 3; z++) {
                         if(event.world.isAirBlock(x, event.y + 1, z)) {
                             if(event.world.rand.nextInt(8) == 1) { // increase .nextInt(x) to lower the chances of spawning a plant
-                                BlockPneumaticPlantBase trySpawn = BlockPlants.allPlants.get(event.world.rand.nextInt(BlockPlants.allPlants.size() - 1)); // select a random plant    							
+                                BlockPneumaticPlantBase trySpawn = BlockPneumaticPlantBase.allPlants.get(event.world.rand.nextInt(BlockPneumaticPlantBase.allPlants.size() - 1)); // select a random plant    							
                                 if(trySpawn.canPlantGrowOnThisBlock(event.world.getBlock(x, event.y, z), event.world, x, event.y, z)) { // make sure that the plant we selected can grow on the soil
                                     event.world.setBlock(x, event.y + (trySpawn.isPlantHanging() ? -1 : 1), z, trySpawn);
                                 }

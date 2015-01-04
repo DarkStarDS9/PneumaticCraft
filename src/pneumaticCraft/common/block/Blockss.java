@@ -8,6 +8,7 @@ import pneumaticCraft.PneumaticCraft;
 import pneumaticCraft.common.block.pneumaticPlants.BlockBurstPlant;
 import pneumaticCraft.common.block.pneumaticPlants.BlockChopperPlant;
 import pneumaticCraft.common.block.pneumaticPlants.BlockCreeperPlant;
+import pneumaticCraft.common.block.pneumaticPlants.BlockCultivatedHeliumPlant;
 import pneumaticCraft.common.block.pneumaticPlants.BlockEnderPlant;
 import pneumaticCraft.common.block.pneumaticPlants.BlockFireFlower;
 import pneumaticCraft.common.block.pneumaticPlants.BlockFlyingFlower;
@@ -52,6 +53,7 @@ public class Blockss{
     public static Block musicPlant;
     public static Block propulsionPlant;
     public static Block chopperPlant;
+    public static Block cultivatedHeliumPlant;
     public static Block chargingStation;
     public static Block elevatorBase;
     public static Block elevatorFrame;
@@ -105,6 +107,7 @@ public class Blockss{
         repulsionPlant = new BlockRepulsionPlant().setBlockName("repulsionPlant");
         flyingFlower = new BlockFlyingFlower().setBlockName("flyingFlower");
         chopperPlant = new BlockChopperPlant().setBlockName("chopperPlant");
+        cultivatedHeliumPlant = new BlockCultivatedHeliumPlant().setBlockName("cultivatedHeliumPlant");
         chargingStation = new BlockChargingStation(Material.iron).setBlockName("chargingStation").setHardness(3.0F).setResistance(3.0F);
         elevatorBase = new BlockElevatorBase(Material.iron).setBlockName("elevatorBase").setHardness(3.0F).setResistance(3.0F);
         elevatorFrame = new BlockElevatorFrame(Material.iron).setBlockName("elevatorFrame").setHardness(3.0F).setResistance(3.0F);
@@ -168,6 +171,7 @@ public class Blockss{
         registerBlock(repulsionPlant);
         registerBlock(flyingFlower);
         registerBlock(chopperPlant);
+        registerBlock(cultivatedHeliumPlant);
         registerBlock(chargingStation);
         registerBlock(elevatorBase);
         registerBlock(elevatorFrame);

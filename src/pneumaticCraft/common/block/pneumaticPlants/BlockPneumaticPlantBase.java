@@ -25,7 +25,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BlockPneumaticPlantBase extends BlockFlower{
-    IIcon[] texture;
+    public static List<BlockPneumaticPlantBase> allPlants = new ArrayList<BlockPneumaticPlantBase>();
+
+    private IIcon[] texture;
 
     protected BlockPneumaticPlantBase(){
         super(0);
@@ -39,7 +41,7 @@ public abstract class BlockPneumaticPlantBase extends BlockFlower{
         if(isPlantHanging()) {
             setBlockBounds(0, 0.75F, 0, 1, 1, 1);
         }
-        BlockPlants.allPlants.add(this);
+        BlockPneumaticPlantBase.allPlants.add(this);
     }
 
     @Override

@@ -86,6 +86,8 @@ public class Textures{
     public static final String ICON_PROPULSION_PLANT_LOCATION = PLANT_LOCATION + "propulsionPlant";
     public static final String ICON_CHOPPER_PLANT_LOCATION = PLANT_LOCATION + "chopperPlant";
 
+    public static final String ICON_CULTIVATED_HELIUM_PLANT_LOCATION = PLANT_LOCATION + "cultivatedHeliumPlant";
+
     private static final String PROG_WIDGET_LOCATION = ICON_LOCATION + "textures/items/progwidgets/";
     public static final ResourceLocation PROG_WIDGET_AREA = new ResourceLocation(PROG_WIDGET_LOCATION + "areaPiece.png");
     public static final ResourceLocation PROG_WIDGET_ATTACK = new ResourceLocation(PROG_WIDGET_LOCATION + "attackPiece.png");

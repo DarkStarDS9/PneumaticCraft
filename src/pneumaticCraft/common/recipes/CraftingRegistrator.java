@@ -23,6 +23,7 @@ import pneumaticCraft.common.item.ItemNetworkComponents;
 import pneumaticCraft.common.item.ItemPlasticPlants;
 import pneumaticCraft.common.item.ItemProgrammingPuzzle;
 import pneumaticCraft.common.item.Itemss;
+import pneumaticCraft.common.item.cultivatedPlants.ItemCultivatedSeedBase;
 import pneumaticCraft.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -201,6 +202,9 @@ public class CraftingRegistrator{
         AssemblyRecipe.addLaserRecipe(new ItemStack(Itemss.emptyPCB, 1, Itemss.emptyPCB.getMaxDamage()), Itemss.unassembledPCB);
         AssemblyRecipe.addLaserRecipe(new ItemStack(Blockss.pressureChamberValve, 4, 0), new ItemStack(Blockss.advancedPressureTube, 8, 0));
         AssemblyRecipe.addLaserRecipe(Blocks.quartz_block, new ItemStack(Blockss.aphorismTile, 4, 0));
+        for(ItemCultivatedSeedBase seed : ItemCultivatedSeedBase.allSeeds) {
+            AssemblyRecipe.addLaserRecipe(new ItemStack(Itemss.plasticPlant, 1, seed.getNonCultivatedSeedMeta()), seed, true);
+        }
 
         AssemblyRecipe.addDrillRecipe(new ItemStack(Blockss.compressedIron, 1, 0), new ItemStack(Blockss.pressureChamberValve, 4, 0));
     }

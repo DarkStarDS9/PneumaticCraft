@@ -134,7 +134,7 @@ public class TileEntityAssemblyController extends TileEntityPneumaticBase implem
                         // if(firstRun || areAllMachinesDone(machineList)) {
                         boolean useAir;
                         if(curProgram != null) {
-                            useAir = curProgram.executeStep(this, platform, ioUnitImport, ioUnitExport, drill, laser);
+                            useAir = curProgram.executeStep(worldObj, this, platform, ioUnitImport, ioUnitExport, drill, laser);
                             if(useAir) displayedText = "Running...";
                         } else {
                             useAir = true;

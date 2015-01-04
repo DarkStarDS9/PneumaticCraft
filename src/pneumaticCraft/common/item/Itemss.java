@@ -3,9 +3,11 @@ package pneumaticCraft.common.item;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBucket;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import pneumaticCraft.PneumaticCraft;
 import pneumaticCraft.common.block.Blockss;
+import pneumaticCraft.common.item.cultivatedPlants.ItemCultivatedHeliumSeeds;
 import pneumaticCraft.common.thirdparty.ThirdPartyManager;
 import pneumaticCraft.lib.Names;
 import pneumaticCraft.lib.PneumaticValues;
@@ -22,6 +24,7 @@ public class Itemss{
     public static Item cannonBarrel;
     public static Item turbineBlade;
     public static Item plasticPlant;
+    public static Item cultivatedHeliumSeeds;
     public static Item plastic;
     public static Item airCanister;
     public static Item vortexCannon;
@@ -56,6 +59,7 @@ public class Itemss{
         cannonBarrel = new ItemPneumatic().setUnlocalizedName("cannonBarrel");
         turbineBlade = new ItemPneumatic(Textures.ITEM_TURBINE_BLADE).setUnlocalizedName("turbineBlade");
         plasticPlant = new ItemPlasticPlants().setUnlocalizedName("plasticPlant");
+        cultivatedHeliumSeeds = new ItemCultivatedHeliumSeeds().setUnlocalizedName("cultivatedHeliumSeeds");
         plastic = new ItemPlastic().setUnlocalizedName("plastic");
         airCanister = new ItemPressurizable(Textures.ITEM_AIR_CANISTER, PneumaticValues.AIR_CANISTER_MAX_AIR, PneumaticValues.AIR_CANISTER_VOLUME).setUnlocalizedName("airCanister");
         vortexCannon = new ItemVortexCannon(Textures.ITEM_VORTEX).setUnlocalizedName("vortexCannon");
@@ -84,6 +88,9 @@ public class Itemss{
         registerItems();
 
         OreDictionary.registerOre(Names.INGOT_IRON_COMPRESSED, ingotIronCompressed);
+        OreDictionary.registerOre(Names.SEED_HELIUM, cultivatedHeliumSeeds);
+        OreDictionary.registerOre(Names.SEED_HELIUM, new ItemStack(plasticPlant, 1, ItemPlasticPlants.HELIUM_PLANT_DAMAGE));
+        OreDictionary.registerOre(Names.SEED_HELIUM, new ItemStack(plasticPlant, 1, ItemPlasticPlants.HELIUM_PLANT_DAMAGE + 16));
     }
 
     private static void registerItems(){
@@ -95,6 +102,7 @@ public class Itemss{
         registerItem(cannonBarrel);
         registerItem(turbineBlade);
         registerItem(plasticPlant);
+        registerItem(cultivatedHeliumSeeds);
         registerItem(plastic);
         registerItem(airCanister);
         registerItem(vortexCannon);

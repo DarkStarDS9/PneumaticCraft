@@ -77,6 +77,13 @@ public class TileEntityAssemblyLaser extends TileEntityAssemblyRobot{
         }
     }
 
+    public int getLaserPercentDone(){
+        if(laserStep < 4) return 0;
+        if(laserStep > 104) return 100;
+
+        return(laserStep - 4);
+    }
+
     @Override
     public boolean gotoNeighbour(ForgeDirection primaryDir, ForgeDirection secondaryDir){
         boolean diagonal = super.gotoNeighbour(primaryDir, secondaryDir);

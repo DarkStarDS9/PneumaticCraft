@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 import pneumaticCraft.api.recipe.AssemblyRecipe;
 import pneumaticCraft.common.tileentity.TileEntityAssemblyController;
 import pneumaticCraft.common.tileentity.TileEntityAssemblyDrill;
@@ -37,7 +38,7 @@ public abstract class AssemblyProgram{
      * @param machines
      * @return true if the controller should use air and display 'running'. Return false to display 'standby'.
      */
-    public abstract boolean executeStep(TileEntityAssemblyController controller, TileEntityAssemblyPlatform platform, TileEntityAssemblyIOUnit ioUnitImport, TileEntityAssemblyIOUnit ioUnitExport, TileEntityAssemblyDrill drill, TileEntityAssemblyLaser laser);
+    public abstract boolean executeStep(World world, TileEntityAssemblyController controller, TileEntityAssemblyPlatform platform, TileEntityAssemblyIOUnit ioUnitImport, TileEntityAssemblyIOUnit ioUnitExport, TileEntityAssemblyDrill drill, TileEntityAssemblyLaser laser);
 
     public abstract void writeToNBT(NBTTagCompound tag);
 
@@ -64,6 +65,6 @@ public abstract class AssemblyProgram{
     }
 
     public static boolean isValidInput(AssemblyRecipe recipe, ItemStack input){
-        return input != null && (input.isItemEqual(recipe.getInput()) || PneumaticCraftUtils.isSameOreDictStack(input, recipe.getInput())) && input.stackSize == recipe.getInput().stackSize;
+        return input != null && (input.isItemEqual(recipe.getInput()) || (!recipe.shouldBlockOreDict() && PneumaticCraftUtils.isSameOreDictStack(input, recipe.getInput()))) && input.stackSize == recipe.getInput().stackSize;
     }
 }
