@@ -9,14 +9,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.world.World;
+import pneumaticCraft.common.ai.DroneAIBlockInteract;
 import pneumaticCraft.common.ai.DroneEntityBase;
 import pneumaticCraft.common.entity.living.EntityDrone;
 import pneumaticCraft.common.item.ItemPlasticPlants;
-import pneumaticCraft.common.util.PneumaticCraftUtils;
 import pneumaticCraft.lib.Textures;
 
-public class ProgWidgetEntityRightClick extends ProgWidget{
+public class ProgWidgetEntityRightClick extends ProgWidget implements IEntityProvider{
 
     @Override
     public boolean hasStepInput(){
@@ -86,19 +86,20 @@ public class ProgWidgetEntityRightClick extends ProgWidget{
                 if(!activated && targetedEntity instanceof EntityAgeable && ((EntityAgeable)targetedEntity).interact(drone.getFakePlayer())) {
                     activated = true;
                 }
-                for(int j = 1; j < drone.getFakePlayer().inventory.mainInventory.length; j++) {
-                    ItemStack excessStack = drone.getFakePlayer().inventory.mainInventory[j];
-                    if(excessStack != null) {
-                        ItemStack remainder = PneumaticCraftUtils.exportStackToInventory(drone.getInventory(), excessStack, ForgeDirection.UNKNOWN);
-                        if(remainder != null) {
-                            drone.entityDropItem(remainder, 0);
-                        }
-                        drone.getFakePlayer().inventory.mainInventory[j] = null;
-                    }
-                }
+                DroneAIBlockInteract.transferToDroneFromFakePlayer(drone);
                 return false;//return activated; <-- will right click as long as it's sucessfully activated.
             }
 
         };
+    }
+
+    @Override
+    public List<Entity> getValidEntities(World world){
+        return ProgWidgetAreaItemBase.getValidEntities(world, this);
+    }
+
+    @Override
+    public boolean isEntityValid(Entity entity){
+        return ProgWidgetAreaItemBase.isEntityValid(entity, this);
     }
 }

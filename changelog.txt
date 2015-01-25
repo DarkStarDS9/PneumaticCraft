@@ -1,9 +1,8 @@
--Added Thaumcraft support for the Pneumatic Helmet.
--Added "getUpgrades" method to the Drone Interface. Allows to get the upgrades a Drone has.
+-You can now right click blocks to plant seeds.
+-Added MFR Fertilizer support (DarkstarDS9).
+-Added "setRenameString" method to the Drone Interface.
+-Updated pt_BR.lang (MrKunji).
 
--Bugfix: Pneumatic Helmet Drone program renderer displays the cycled program render, instead of just the program.
--Bugfix: Lag when connecting a Creative Compressor with too high pressure to a machine with Security Upgrade.
--Bugfix: Fixed logic of Assembly Machines (DarkstarDS9).
--Bugfix: Elevator moving players is buggy and can cause falling damage (DarkstarDS9).
--Bugfix: Drones cause lag when trying to teleport to entities to attack.
--Bugfix: Crash when using ComputerCraft and adding a 'nil' text filter to the Drone Interface.
+-Bugfix: Plants don't grow when there's a block directly above.
+-Bugfix: Crashes with certain Drone Interface actions. Fixes #384
+-Bugfix: Drone will steal XP when right clicking an Essence Berry for example. Fixes #383
